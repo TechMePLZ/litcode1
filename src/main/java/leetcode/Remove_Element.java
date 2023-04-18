@@ -2,6 +2,8 @@ package leetcode;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.stream.Collectors;
+import java.util.stream.Stream;
 // КРИВО КОСО, НО САМ СДЕЛАЛ!!!!!!!!!!
 /**
  * Given an integer array nums and an integer val, remove all occurrences of val in nums in-place. The order of the elements may be changed. Then return the number of elements in nums which are not equal to val.
@@ -32,21 +34,23 @@ import java.util.List;
 public class Remove_Element {
     public static void main(String[] args) {
 
-        int[] nums = {0, 1, 2, 2, 3, 0, 4, 2};
-        int val = 2;
+        int[] nums = {3,2,2,3};
+        int val = 3;
         System.out.println(solutions(nums, val));
 
     }
     public static int solutions(int[] nums, int val) {
 
-        List result = new ArrayList();
-
+        int c = 0;
         for (int i = 0; i < nums.length; i++) {
             if (nums[i] != val) {
-                result.add(nums[i]);
-            }
+                nums[c] = nums[i];
+                c++;
+                }
         }
 
-        return result.size();
+        return c;
     }
 }
+
+
